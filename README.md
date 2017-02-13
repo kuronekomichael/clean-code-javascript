@@ -43,7 +43,7 @@ we review it with our peers. Don't beat yourself up for first drafts that need
 improvement. Beat up the code instead!
 
 ## **変数**
-### 意味がある、発音可能な変数名を使用する
+### 意味が通り、発音も可能な変数名を使用する
 
 **Bad:**
 ```javascript
@@ -72,10 +72,10 @@ getUser();
 **[⬆ back to top](#目次)**
 
 ### 検索可能な名前を使う
-私たちはこれまでに書いた以上のコード量を、今後もっと書いていく事になるでしょう。
-読みやすく、検索可能なコードを書くことは重要です。
-名前が付けられていない変数は、私達のコードを読む人達の理解に重大な意味を持ちます。
-検索可能な名前を付けましょう。
+これまでに書いたコードよりも、今後の人生ではもっと多くのコードを書いていくことになるでしょう。
+そのためにも、読みやすく、検索可能なコードを書くことは重要なのです。
+名前が付けられていない変数は、わたし達のコードを後に読む人達にとって重大な障害となりえます。
+コーディングした人の意図が汲み取れる名前を付けましょう。
 [buddy.js](https://github.com/danielstjules/buddy.js)や[ESLint](https://github.com/eslint/eslint/blob/660e0918933e6e7fede26bc675a0763a6b357c94/docs/rules/no-magic-numbers.md)のようなツールは、
 名前の付けられていない定数を見つけ出すのに役立ちます。
 
@@ -101,7 +101,7 @@ setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
 ```javascript
 const address = 'One Infinite Loop, Cupertino 95014';
 const cityZipCodeRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/;
-saveCityZipCode(address.match(cityZipCodeRegex)[1], address.match(cityZipCodeRegex)[2]);    // マッチした結果って、結局なんなの??
+saveCityZipCode(address.match(cityZipCodeRegex)[1], address.match(cityZipCodeRegex)[2]); // 結局なんなの??
 ```
 
 **Good:**
@@ -145,7 +145,7 @@ locations.forEach((location) => {
 **[⬆ back to top](#目次)**
 
 ### 不要なコンテキストを追加しない
-クラスやオブジェクト名で何かを伝えたら、それを変数名で繰り返さないで下さい。
+クラスやオブジェクト名で伝わることを、あえて変数名でも繰り返す必要はありません。
 
 **Bad:**
 ```javascript
@@ -175,8 +175,8 @@ function paintCar(car) {
 **[⬆ back to top](#目次)**
 
 ### 論理演算子や分岐より、デフォルト引数を使う
-デフォルト引数は、論理演算子よりも明瞭な記述になることが多いです。
-ただし、デフォルト引数は引数が`undefined`で呼び出された時だけ設定されることに注意してください。
+デフォルト引数は、論理演算子よりも明瞭に記述できる場面が多いでしょう。
+ただし、デフォルト引数は引数が`undefined`の時だけ設定されることに注意してください。
 論理演算では"否定"の意味となる、`''`や`""`, `false`, `null`, `0`,`NaN`を引数に指定した場合は、デフォルト引数は設定されません。
 
 **Bad:**
