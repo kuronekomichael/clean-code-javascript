@@ -249,12 +249,11 @@ createMenu({
 **[⬆ back to top](#目次)**
 
 
-### Functions should do one thing
-This is by far the most important rule in software engineering. When functions
-do more than one thing, they are harder to compose, test, and reason about.
-When you can isolate a function to just one action, they can be refactored
-easily and your code will read much cleaner. If you take nothing else away from
-this guide other than this, you'll be ahead of many developers.
+### 一つの関数では、一つのことだけを行う
+これはソフトウェア工学上、最も重要なルールの一つです。
+ある関数が複数の役割をもって処理を行うということは、関数の実装もそのテストも、関数の挙動を外部から推測することも困難にしてしまいます。
+関数を１つのアクションに独立させることができれば、簡単にリファクタリングすることができ、より洗練されたコードにすることができます。
+このルールを守るだけでも、他の開発者を先んじることになるでしょう。
 
 **Bad:**
 ```javascript
@@ -283,7 +282,7 @@ function isClientActive(client) {
 ```
 **[⬆ back to top](#目次)**
 
-### Function names should say what they do
+### 関数名で何をしているのか語る
 
 **Bad:**
 ```javascript
@@ -293,7 +292,7 @@ function addToDate(date, month) {
 
 const date = new Date();
 
-// It's hard to to tell from the function name what is added
+// これだけでは、引数の`1`が、年月日のどこに足されるのか推測できない...
 addToDate(date, 1);
 ```
 
@@ -308,10 +307,9 @@ addMonthToDate(1, date);
 ```
 **[⬆ back to top](#目次)**
 
-### Functions should only be one level of abstraction
-When you have more than one level of abstraction your function is usually
-doing too much. Splitting up functions leads to reusability and easier
-testing.
+### １つの関数では、抽象化のレベルに１つに留める
+関数が２つ以上の抽象化を担っている場合、それは機能が過剰と判断すべきです。
+機能を関数に分割することで、再利用性が高まり、テストも容易になります。
 
 **Bad:**
 ```javascript
@@ -376,7 +374,7 @@ function parseBetterJSAlternative(code) {
 ```
 **[⬆ back to top](#目次)**
 
-### Remove duplicate code
+### 重複するコードを省く
 Do your absolute best to avoid duplicate code. Duplicate code is bad because it
 means that there's more than one place to alter something if you need to change
 some logic.
@@ -456,7 +454,7 @@ function showEmployeeList(employees) {
 ```
 **[⬆ back to top](#目次)**
 
-### Set default objects with Object.assign
+### `Object.assign`を使って、オブジェクトのデフォルト値を設定する
 
 **Bad:**
 ```javascript
@@ -503,8 +501,10 @@ createMenu(menuConfig);
 **[⬆ back to top](#目次)**
 
 
-### Don't use flags as function parameters
-Flags tell your user that this function does more than one thing. Functions should do one thing. Split out your functions if they are following different code paths based on a boolean.
+### 関数の引数にフラグを使わない
+引数にフラグ(ブール値)があるということは、その関数が複数のことを行っている証です。
+１つの関数は、１つのことを行うべきです。
+ブール値によって関数内に分岐を設けているのなら、そもそも関数を２つに分割しましょう。
 
 **Bad:**
 ```javascript
